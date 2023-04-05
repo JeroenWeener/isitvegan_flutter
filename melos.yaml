@@ -48,7 +48,7 @@ scripts:
         "flutter build appbundle --flavor=production --release"
     description: Builds the Android application.
     select-package:
-      dir_exists:
+      dir-exists:
         - android
       scope: "*_app"
 
@@ -58,7 +58,7 @@ scripts:
         "flutter build appbundle --flavor=production --release --build-number=$GITHUB_RUN_NUMBER"
     description: Builds the Android application with a build-number from ENV.
     select-package:
-      dir_exists:
+      dir-exists:
         - android
       scope: "*_app"
 
@@ -68,7 +68,7 @@ scripts:
         "flutter build appbundle --debug"
     description: Builds the Android application.
     select-package:
-      dir_exists:
+      dir-exists:
         - android
       scope: "*_app"
 
@@ -78,7 +78,7 @@ scripts:
         "flutter build appbundle --profile"
     description: Builds the Android application.
     select-package:
-      dir_exists:
+      dir-exists:
         - android
       scope: "*_app"
 
@@ -88,7 +88,7 @@ scripts:
         flutter build ipa --release --flavor=production --build-number=$GITHUB_RUN_NUMBER --export-options-plist=ios/export_options.plist
     description: Builds the iOS application with a build-number from ENV.
     select-package:
-      dir_exists:
+      dir-exists:
         - ios
       scope: "*_app"
 
@@ -98,7 +98,7 @@ scripts:
         "flutter build ios --no-codesign"
     description: Builds the iOS application.
     select-package:
-      dir_exists:
+      dir-exists:
         - ios
       scope: "*_app"
 
@@ -108,7 +108,7 @@ scripts:
         "flutter build ios --no-codesign --debug"
     description: Builds the iOS application.
     select-package:
-      dir_exists:
+      dir-exists:
         - ios
       scope: "*_app"
 
@@ -118,7 +118,7 @@ scripts:
         "flutter build ios --no-codesign --profile"
     description: Builds the iOS application.
     select-package:
-      dir_exists:
+      dir-exists:
         - ios
       scope: "*_app"
 
@@ -128,7 +128,7 @@ scripts:
         "flutter build linux"
     description: Builds the Linux application.
     select-package:
-      dir_exists:
+      dir-exists:
         - linux
       scope: "*_app"
 
@@ -138,7 +138,7 @@ scripts:
         "flutter build linux --debug"
     description: Builds the Linux application.
     select-package:
-      dir_exists:
+      dir-exists:
         - linux
       scope: "*_app"
 
@@ -148,7 +148,7 @@ scripts:
         "flutter build linux --profile"
     description: Builds the Linux application.
     select-package:
-      dir_exists:
+      dir-exists:
         - linux
       scope: "*_app"
 
@@ -158,7 +158,7 @@ scripts:
         "flutter build macos --no-codesign"
     description: Builds the macOS application.
     select-package:
-      dir_exists:
+      dir-exists:
         - macos
       scope: "*_app"
 
@@ -168,7 +168,7 @@ scripts:
         "flutter build macos --no-codesign --debug"
     description: Builds the macOS application.
     select-package:
-      dir_exists:
+      dir-exists:
         - macos
       scope: "*_app"
 
@@ -178,7 +178,7 @@ scripts:
         "flutter build macos --no-codesign --profile"
     description: Builds the macOS application.
     select-package:
-      dir_exists:
+      dir-exists:
         - macos
       scope: "*_app"
 
@@ -188,7 +188,7 @@ scripts:
         "flutter build web --release"
     description: Builds the web application.
     select-package:
-      dir_exists:
+      dir-exists:
         - web
       scope: "*_app"
 
@@ -198,7 +198,7 @@ scripts:
         "flutter build web"
     description: Builds the web application.
     select-package:
-      dir_exists:
+      dir-exists:
         - web
       scope: "*_app"
 
@@ -208,7 +208,7 @@ scripts:
         "flutter build web --profile"
     description: Builds the web application.
     select-package:
-      dir_exists:
+      dir-exists:
         - web
       scope: "*_app"
 
@@ -218,7 +218,7 @@ scripts:
         "flutter build windows"
     description: Builds the Windows application.
     select-package:
-      dir_exists:
+      dir-exists:
         - windows
       scope: "*_app"
 
@@ -228,7 +228,7 @@ scripts:
         "flutter build windows --debug"
     description: Builds the Windows application.
     select-package:
-      dir_exists:
+      dir-exists:
         - windows
       scope: "*_app"
 
@@ -238,7 +238,7 @@ scripts:
         "flutter build windows --profile"
     description: Builds the Windows application.
     select-package:
-      dir_exists:
+      dir-exists:
         - windows
       scope: "*_app"
 
