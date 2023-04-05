@@ -1,0 +1,37 @@
+name: isitvegan_app
+
+on: 
+  pull_request:
+    branches: [main, master]
+    paths:
+      - '.github/workflows/isitvegan_app.yaml'
+      - 'packages/isitvegan_app/**'
+  push:
+    branches: [main, master]
+    paths:
+      - '.github/workflows/isitvegan_app.yaml'
+      - 'packages/isitvegan_app/**'
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    env:
+      source-directory: ./isitvegan_app 
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: subosito/flutter-action@v1.5.3
+
+      - name: Install Dependencies
+        run: flutter packages get
+        working-directory: $
+
+      - name: Format
+        run: flutter format --set-exit-if-changed lib
+        working-directory: $
+
+      - name: Analyze
+        run: flutter analyze lib
+        working-directory: $

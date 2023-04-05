@@ -1,0 +1,8 @@
+{
+  "@@locale": "nl",
+  "code": "nl-NL",
+  "appBarTitle": "isitvegan",
+  "@appBarTitle": {
+    "description": "Tekst die in de AppBar van paginas wordt weergegeven."
+  }
+}

@@ -1,0 +1,26 @@
+name: isitvegan_app
+version: 0.0.1
+
+publish_to: 'none'
+
+environment:
+  sdk: ">=2.17.1 <3.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  # Third party dependencies
+  flutter:
+    sdk: flutter
+  get_it: ^7.2.0
+
+  # First party dependencies
+  isitvegan_core:
+    path: ../isitvegan_core
+  isitvegan_ui:
+    path: ../isitvegan_ui
+
+dev_dependencies:
+  lints: ^2.0.0
+
+flutter:
+  uses-material-design: true

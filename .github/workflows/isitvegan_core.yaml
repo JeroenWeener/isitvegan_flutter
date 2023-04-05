@@ -1,0 +1,41 @@
+name: isitvegan_core
+
+on: 
+  pull_request:
+    branches: [main, master]
+    paths:
+      - '.github/workflows/isitvegan_core.yaml'
+      - 'packages/isitvegan_core/**'
+  push:
+    branches: [main, master]
+    paths:
+      - '.github/workflows/isitvegan_core.yaml'
+      - 'packages/isitvegan_core/**'
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    env:
+      source-directory: ./isitvegan_core
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: subosito/flutter-action@v1.5.3
+
+      - name: Install Dependencies
+        run: flutter packages get
+        working-directory: $
+
+      - name: Format
+        run: flutter format --set-exit-if-changed lib test
+        working-directory: $
+
+      - name: Analyze
+        run: flutter analyze lib test
+        working-directory: $
+
+      - name: Run tests
+        run: flutter test --no-pub --test-randomize-ordering-seed random
+        working-directory: $

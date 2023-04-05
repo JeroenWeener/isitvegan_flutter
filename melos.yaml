@@ -1,0 +1,292 @@
+name: isitvegan
+
+packages:
+  - packages/**
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+
+scripts:
+  analyze:
+    run: |
+      melos exec -- \
+        dart analyze . --fatal-infos
+    description: |
+      Run `dart analyze` in all packages.
+
+  get:
+    run: |
+      melos exec -- \
+        flutter packages get
+    description: |
+      Run `flutter packages get` in all packages.
+
+  format:
+    run: |
+      melos exec -- \
+        flutter format .
+    description: |
+      Run `flutter format .` in all packages.
+
+  fix:apply:
+    run: |
+      melos exec -- \
+        dart fix --apply
+    description: |
+      Run `dart fix --apply` in all packages.
+
+  format:set_exit_if_changed:
+    run: |
+      flutter format $(find . -name "*.dart" -not -wholename "*/generated/*") --set-exit-if-changed
+    description: |
+      Run `flutter format . --set-exit-if-changed` in all packages.
+
+  build:android:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build appbundle --flavor=production --release"
+    description: Builds the Android application.
+    select-package:
+      dir_exists:
+        - android
+      scope: "*_app"
+
+  build:android:runner:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build appbundle --flavor=production --release --build-number=$GITHUB_RUN_NUMBER"
+    description: Builds the Android application with a build-number from ENV.
+    select-package:
+      dir_exists:
+        - android
+      scope: "*_app"
+
+  build:android:debug:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build appbundle --debug"
+    description: Builds the Android application.
+    select-package:
+      dir_exists:
+        - android
+      scope: "*_app"
+
+  build:android:profile:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build appbundle --profile"
+    description: Builds the Android application.
+    select-package:
+      dir_exists:
+        - android
+      scope: "*_app"
+
+  build:ios:runner:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        flutter build ipa --release --flavor=production --build-number=$GITHUB_RUN_NUMBER --export-options-plist=ios/export_options.plist
+    description: Builds the iOS application with a build-number from ENV.
+    select-package:
+      dir_exists:
+        - ios
+      scope: "*_app"
+
+  build:ios:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build ios --no-codesign"
+    description: Builds the iOS application.
+    select-package:
+      dir_exists:
+        - ios
+      scope: "*_app"
+
+  build:ios:debug:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build ios --no-codesign --debug"
+    description: Builds the iOS application.
+    select-package:
+      dir_exists:
+        - ios
+      scope: "*_app"
+
+  build:ios:profile:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build ios --no-codesign --profile"
+    description: Builds the iOS application.
+    select-package:
+      dir_exists:
+        - ios
+      scope: "*_app"
+
+  build:linux:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build linux"
+    description: Builds the Linux application.
+    select-package:
+      dir_exists:
+        - linux
+      scope: "*_app"
+
+  build:linux:debug:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build linux --debug"
+    description: Builds the Linux application.
+    select-package:
+      dir_exists:
+        - linux
+      scope: "*_app"
+
+  build:linux:profile:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build linux --profile"
+    description: Builds the Linux application.
+    select-package:
+      dir_exists:
+        - linux
+      scope: "*_app"
+
+  build:macos:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build macos --no-codesign"
+    description: Builds the macOS application.
+    select-package:
+      dir_exists:
+        - macos
+      scope: "*_app"
+
+  build:macos:debug:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build macos --no-codesign --debug"
+    description: Builds the macOS application.
+    select-package:
+      dir_exists:
+        - macos
+      scope: "*_app"
+
+  build:macos:profile:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build macos --no-codesign --profile"
+    description: Builds the macOS application.
+    select-package:
+      dir_exists:
+        - macos
+      scope: "*_app"
+
+  build:web:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build web --release"
+    description: Builds the web application.
+    select-package:
+      dir_exists:
+        - web
+      scope: "*_app"
+
+  build:web:debug:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build web"
+    description: Builds the web application.
+    select-package:
+      dir_exists:
+        - web
+      scope: "*_app"
+
+  build:web:profile:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build web --profile"
+    description: Builds the web application.
+    select-package:
+      dir_exists:
+        - web
+      scope: "*_app"
+
+  build:windows:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build windows"
+    description: Builds the Windows application.
+    select-package:
+      dir_exists:
+        - windows
+      scope: "*_app"
+
+  build:windows:debug:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build windows --debug"
+    description: Builds the Windows application.
+    select-package:
+      dir_exists:
+        - windows
+      scope: "*_app"
+
+  build:windows:profile:
+    run: |
+      melos exec -c1 --fail-fast -- \
+        "flutter build windows --profile"
+    description: Builds the Windows application.
+    select-package:
+      dir_exists:
+        - windows
+      scope: "*_app"
+
+  debug:
+    run: |
+      melos exec "flutter run"
+    description: Run the Flutter application in debug mode.
+    select-package:
+      scope: "*_app"
+
+  test:
+    run: |
+      melos run test:selective --no-select
+
+  test:selective:
+    run: |
+      melos exec --fail-fast -- \
+        "flutter test --no-pub"
+    description: Run `flutter test` for a specific package.
+    select-package:
+      dir-exists:
+        - test
+
+  clean:deep:
+    run: git clean -x -d -f -q
+    description: Clean things very deeply, can be used to establish "pristine checkout" status.
+
+  # Additional cleanup lifecycle script, executed when `melos clean` is run.
+  postclean: >
+    melos exec -- "flutter clean"
+
+  generate:
+    run: |
+      melos run build_runner && \
+      melos run l10n
+
+  build_runner:
+    run: |
+      melos run build_runner:build
+
+  build_runner:build:
+    run: |
+      melos exec --depends-on=build_runner "flutter pub run build_runner build --delete-conflicting-outputs"
+
+  build_runner:watch:
+    run: |
+      melos exec --depends-on=build_runner "flutter pub run build_runner watch --delete-conflicting-outputs"
+
+  l10n:
+    run: |
+      melos exec --depends-on=intl "flutter gen-l10n"

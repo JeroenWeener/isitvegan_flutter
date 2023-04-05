@@ -1,0 +1,22 @@
+name: Build & Upload iOS
+on:
+  push:
+    branches:
+      - 'main'
+      - 'master'
+jobs:
+  call-workflow:
+    uses: baseflow/.github/.github/workflows/flutter_build_ios_melos.yaml@ios_melos
+    with:
+      environment: 'production'
+      app-dir: './packages/isitvegan_app'
+      app-path: 'build/ios/ipa/Isitvegan.ipa'
+    secrets:
+      ios_provisioning_profile_password: $
+      ios_provisioning_profile_asc: $
+      ios_certificate_asc: $
+      ios_certificate_password: $
+      p12_password: $
+      app_store_api_private_key: $
+      app_store_issuer_id: $
+      app_store_api_key_id: $

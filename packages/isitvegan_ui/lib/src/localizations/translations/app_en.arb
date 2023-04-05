@@ -1,0 +1,8 @@
+{
+  "@@locale": "en",
+  "code": "en-US",
+  "appBarTitle": "isitvegan",
+  "@appBarTitle": {
+    "description": "Text shown in the AppBar of the pages"
+  }
+}

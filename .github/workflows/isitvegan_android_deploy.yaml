@@ -1,0 +1,19 @@
+name: Build & deploy android
+on:
+  push:
+    branches:
+      - 'main'
+      - 'master'
+jobs:
+  call-workflow:
+    uses: baseflow/.github/.github/workflows/flutter_build_android_melos.yaml@main
+    with:
+      environment: 'production'
+      app-dir: './packages/isitvegan_app'
+      packageName: 'com.jwinduustries.isitvegan' # this should be optional.. https://github.com/r0adkll/upload-google-play/issues/103
+    secrets:
+      android_key_asc: $
+      android_key_passphrase: $
+      android_keystore_asc: $
+      android_keystore_passphrase: $
+      play_store_gservice_account: $
