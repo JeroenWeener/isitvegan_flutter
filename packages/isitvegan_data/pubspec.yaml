@@ -13,6 +13,3 @@ dependencies:
   # First party dependencies
   isitvegan_core:
     path: ../isitvegan_core
-
-flutter:
-  uses-material-design: true
