@@ -1,0 +1,18 @@
+name: isitvegan_data
+version: 0.0.1
+
+publish_to: 'none'
+
+environment:
+  sdk: ">=2.17.1 <3.0.0"
+
+dependencies:
+  # Third party dependencies
+  get_it: ^7.2.0
+
+  # First party dependencies
+  isitvegan_core:
+    path: ../isitvegan_core
+
+flutter:
+  uses-material-design: true

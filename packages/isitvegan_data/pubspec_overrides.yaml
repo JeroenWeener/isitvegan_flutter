@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: isitvegan_core
+dependency_overrides:
+  isitvegan_core:
+    path: ../isitvegan_core

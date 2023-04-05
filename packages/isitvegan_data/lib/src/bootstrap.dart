@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:get_it/get_it.dart';
+import 'package:isitvegan_core/isitvegan_core.dart';
 
-import '../isitvegan_core.dart';
+import 'repositories/json_ingredient_repository.dart';
 
-/// Bootstraps the isitvegan_core package ensuring all dependencies are
+/// Bootstraps the isitvegan_data package ensuring all dependencies are
 /// registered.
 ///
 /// The `bootstrap()` method is called from the `isitvegan_app/main.dart`
@@ -12,10 +12,8 @@ import '../isitvegan_core.dart';
 Future<void> bootstrap() async {
   final Components dependencies = Components(
     components: [
-      Factory<RecognitionService>(
-        () => RecognitionService(
-          ingredientRepository: GetIt.instance.get<IngredientRepository>(),
-        ),
+      Factory<IngredientRepository>(
+        () => JsonIngredientRepository(),
       ),
     ],
   );

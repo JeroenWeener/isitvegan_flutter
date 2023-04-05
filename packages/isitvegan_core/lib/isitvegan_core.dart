@@ -3,4 +3,6 @@
 
 export 'src/bootstrap.dart';
 export 'src/components.dart';
-export 'src/use_cases/use_cases.dart';
+export 'src/models/models.dart';
+export 'src/repositories/repositories.dart';
+export 'src/services/services.dart';
