@@ -6,10 +6,10 @@ import '../repositories/ingredient_repository.dart';
 
 class RecognitionService {
   const RecognitionService({
-    required this.ingredientRepository,
-  });
+    required IngredientRepository ingredientRepository,
+  }) : _ingredientRepository = ingredientRepository;
 
-  final IngredientRepository ingredientRepository;
+  final IngredientRepository _ingredientRepository;
 
   /// Finds the best matching words from text elements [ocrTexts] in [s] and [t].
   ///
@@ -32,8 +32,8 @@ class RecognitionService {
     int lookAhead = 10,
     int dMax = 4,
   }) async {
-    Set<String> s = await ingredientRepository.getIngredientSet();
-    BKTree<String> t = await ingredientRepository.getIngredientTree();
+    Set<String> s = await _ingredientRepository.getIngredientSet();
+    BKTree<String> t = await _ingredientRepository.getIngredientTree();
 
     // Generate sequences of provided text elements.
     Iterable<Iterable<OCRText>> pss = ocrTexts.permutations(

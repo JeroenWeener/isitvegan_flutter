@@ -5,8 +5,8 @@ class TxtIngredientRepository implements IngredientRepository {
   BKTree<String>? _ingredientTree;
 
   Future<void> _init() async {
-    Iterable<String> ingredients =
-        await readFile('assets/ingredient_list_curated.txt');
+    Iterable<String> ingredients = await readFile(
+        'packages/isitvegan_data/assets/ingredient_list_curated.txt');
     _ingredientSet = ingredients.toSet();
     _ingredientTree = BKTree(values: ingredients, d: Levenshtein().distance);
   }
