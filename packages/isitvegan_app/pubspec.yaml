@@ -16,6 +16,8 @@ dependencies:
   # First party dependencies
   isitvegan_core:
     path: ../isitvegan_core
+  isitvegan_data:
+    path: ../isitvegan_data
   isitvegan_ui:
     path: ../isitvegan_ui
 

@@ -32,8 +32,8 @@ class RecognitionService {
     int lookAhead = 10,
     int dMax = 4,
   }) async {
-    Set<String> s = ingredientRepository.getIngredientSet();
-    BKTree<String> t = ingredientRepository.getIngredientTree();
+    Set<String> s = await ingredientRepository.getIngredientSet();
+    BKTree<String> t = await ingredientRepository.getIngredientTree();
 
     // Generate sequences of provided text elements.
     Iterable<Iterable<OCRText>> pss = ocrTexts.permutations(

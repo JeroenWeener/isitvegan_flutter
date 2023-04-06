@@ -1,1 +1,1 @@
-export 'json_ingredient_repository.dart';
+export 'txt_ingredient_repository.dart';

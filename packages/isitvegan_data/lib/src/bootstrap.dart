@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:isitvegan_core/isitvegan_core.dart';
 
-import 'repositories/json_ingredient_repository.dart';
+import 'repositories/repositories.dart';
 
 /// Bootstraps the isitvegan_data package ensuring all dependencies are
 /// registered.
@@ -13,7 +13,7 @@ Future<void> bootstrap() async {
   final Components dependencies = Components(
     components: [
       Factory<IngredientRepository>(
-        () => JsonIngredientRepository(),
+        () => TxtIngredientRepository(),
       ),
     ],
   );

@@ -13,3 +13,7 @@ dependencies:
   # First party dependencies
   isitvegan_core:
     path: ../isitvegan_core
+
+flutter:
+  assets:
+    - assets/ingredient_list_curated.txt
