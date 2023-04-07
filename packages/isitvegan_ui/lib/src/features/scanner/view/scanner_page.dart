@@ -9,8 +9,8 @@ class ScannerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(
-        create: (context) => ScannerCubit()..init(),
+      body: BlocProvider<ScannerCubit>(
+        create: (BuildContext context) => ScannerCubit()..init(),
         child: const ScannerView(),
       ),
     );

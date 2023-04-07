@@ -10,7 +10,7 @@ jobs:
     with:
       environment: 'production'
       app-dir: './packages/isitvegan_app'
-      packageName: 'com.jwinduustries.isitvegan' # this should be optional.. https://github.com/r0adkll/upload-google-play/issues/103
+      packageName: 'com.jwindustries.isitvegan' # this should be optional.. https://github.com/r0adkll/upload-google-play/issues/103
     secrets:
       android_key_asc: $
       android_key_passphrase: $

@@ -10,7 +10,7 @@
 	<string>app-store</string>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>com.jwinduustries.isitvegan</key>
+		<key>com.jwindustries.isitvegan</key>
 		<string><ENTER PROVISIONING NAME HERE></string>
 	</dict>
 	<key>signingCertificate</key>

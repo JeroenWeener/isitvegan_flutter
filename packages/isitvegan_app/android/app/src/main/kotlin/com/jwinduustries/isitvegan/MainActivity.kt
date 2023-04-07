@@ -1,4 +1,4 @@
-package com.jwinduustries.isitvegan
+package com.jwindustries.isitvegan
 
 import io.flutter.embedding.android.FlutterActivity
 

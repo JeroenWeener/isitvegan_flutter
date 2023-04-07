@@ -10,9 +10,11 @@ class ScannerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ScannerCubit, ScannerState>(
       builder: (BuildContext context, ScannerState state) {
-        return Text(
-          state.cameras.length.toString(),
-          style: const TextStyle(fontSize: 200),
+        return Center(
+          child: Text(
+            state.cameras.length.toString(),
+            style: const TextStyle(fontSize: 200),
+          ),
         );
       },
     );

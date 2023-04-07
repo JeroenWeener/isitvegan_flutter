@@ -52,8 +52,8 @@ Part of these steps use GnuPG (binary name `gpg`) to encrypt sensitive informati
 - [Homebrew](http://brew.sh/): `brew install gnupg gnupg2`
 - [MacPorts](https://www.macports.org/): `sudo port install gnupg gnupg2`
 
-- Go to [Apple Developer](https://developer.apple.com/account/resources/identifiers/list/bundleId) and add com.jwinduustries..
-- Go to [App Store Connect](https://appstoreconnect.apple.com/apps) and add a new app with com.jwinduustries. as Bundle ID.
+- Go to [Apple Developer](https://developer.apple.com/account/resources/identifiers/list/bundleId) and add com.jwindustries..
+- Go to [App Store Connect](https://appstoreconnect.apple.com/apps) and add a new app with com.jwindustries. as Bundle ID.
 - SKU (Stock Keeping Unit) is a value Apple will include in the reports and can be used by the organization to identify the app. Usually the value used is the same as the bundle identifier, but could be anything as long as it is unique within the organization.
 - Open KeyChain on you MacOs device. [Follow the steps](https://help.apple.com/developer-account/#/devbfa00fef7) to create a certificate singing request.
 - Go to the [Apple Website](https://developer.apple.com/account/resources/certificates/add) and select Apple Distribution.

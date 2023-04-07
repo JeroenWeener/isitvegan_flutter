@@ -49,7 +49,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.jwinduustries.isitvegan"
+        applicationId "com.jwindustries.isitvegan"
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
