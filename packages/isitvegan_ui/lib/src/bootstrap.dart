@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:camera/camera.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,9 +13,14 @@ Future<void> bootstrap() async {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
+  await WidgetsFlutterBinding.ensureInitialized();
+  List<CameraDescription> cameras = await availableCameras();
+
   await runZonedGuarded(
     () async => await BlocOverrides.runZoned(
-      () async => runApp(const App()),
+      () async => runApp(App(
+        cameras: cameras,
+      )),
       // blocObserver: CustomBlocObserver(),
     ),
     (error, stackTrace) {

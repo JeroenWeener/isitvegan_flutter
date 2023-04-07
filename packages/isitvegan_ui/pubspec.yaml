@@ -9,12 +9,15 @@ environment:
 
 dependencies:
   # Third party dependencies
+  camera: ^0.10.3+2
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
   flutter_localizations:
     sdk: flutter
   get_it: ^7.2.0
+  google_mlkit_commons: ^0.2.0
+  google_mlkit_text_recognition: ^0.5.0
   intl: ^0.17.0
 
   # First party dependencies
