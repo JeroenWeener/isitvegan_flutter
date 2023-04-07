@@ -3,25 +3,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 
+import '../features/scanner/view/scanner_page.dart';
 import 'text_detector_painter.dart';
 
 /// This widget is the entry-point of the Widget-tree.
 class App extends StatelessWidget {
   const App({
     super.key,
-    required this.cameras,
   });
-
-  final List<CameraDescription> cameras;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'IIV 2023-03-07',
-      home: MyHomePage(
-        cameras: cameras,
-      ),
-    );
+    return const MaterialApp(home: ScannerPage());
   }
 }
 
