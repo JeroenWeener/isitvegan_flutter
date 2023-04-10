@@ -10,10 +10,15 @@ class RecognitionService {
     required IngredientRepository ingredientRepository,
     TextRecognizer? textRecognizer,
   })  : _ingredientRepository = ingredientRepository,
-        _textRecognizer = textRecognizer ?? TextRecognizer();
+        _textRecognizer = textRecognizer ??
+            TextRecognizer(script: TextRecognitionScript.latin);
 
   final IngredientRepository _ingredientRepository;
   final TextRecognizer _textRecognizer;
+
+  Future<RecognizedText> scanImage(InputImage image) {
+    return _textRecognizer.processImage(image);
+  }
 
   /// Finds the best matching words from text elements [ocrTexts] in [s] and [t].
   ///

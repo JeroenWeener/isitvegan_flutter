@@ -10,6 +10,7 @@ environment:
 dependencies:
   # Third party dependencies
   camera: ^0.10.3+2
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:isitvegan_core/isitvegan_core.dart';
 
 import '../../../utils/utils.dart';
 
@@ -10,7 +11,7 @@ class TextOverlayPainter extends CustomPainter {
     this.rotation,
   );
 
-  final RecognizedText recognizedText;
+  final Iterable<OCRText> recognizedText;
   final Size absoluteImageSize;
   final InputImageRotation rotation;
 
@@ -25,21 +26,17 @@ class TextOverlayPainter extends CustomPainter {
       ..strokeWidth = 2.0
       ..color = Colors.red;
 
-    for (final textBlock in recognizedText.blocks
-        .map((e) => e.lines)
-        .reduce((value, element) => value + element)
-        .map((e) => e.elements)
-        .reduce((value, element) => value + element)) {
+    for (final textBlock in recognizedText) {
       bool hasMilk = textBlock.text.contains('melk');
 
-      final left = translateX(
-          textBlock.boundingBox.left, rotation, size, absoluteImageSize);
-      final _ = translateY(
-          textBlock.boundingBox.top, rotation, size, absoluteImageSize);
-      final right = translateX(
-          textBlock.boundingBox.right, rotation, size, absoluteImageSize);
-      final bottom = translateY(
-          textBlock.boundingBox.bottom, rotation, size, absoluteImageSize);
+      final left =
+          translateX(textBlock.bbox.left, rotation, size, absoluteImageSize);
+      final _ =
+          translateY(textBlock.bbox.top, rotation, size, absoluteImageSize);
+      final right =
+          translateX(textBlock.bbox.right, rotation, size, absoluteImageSize);
+      final bottom =
+          translateY(textBlock.bbox.bottom, rotation, size, absoluteImageSize);
 
       canvas.drawLine(
         Offset(left, bottom),
