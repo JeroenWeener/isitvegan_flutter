@@ -1,4 +1,6 @@
-import 'size.dart';
+import 'dart:ui';
+
+import '../extensions/rect_extensions.dart';
 
 class OCRText {
   const OCRText({
@@ -7,14 +9,12 @@ class OCRText {
   });
 
   final String text;
-  final Size bbox;
+  final Rect bbox;
 
   factory OCRText.resolved(Iterable<OCRText> ocrTexts, String resolvedName) {
     return OCRText(
       text: resolvedName,
-      bbox: Size.combine(
-        ocrTexts.map((OCRText ocrText) => ocrText.bbox),
-      ),
+      bbox: ocrTexts.map((OCRText ocrText) => ocrText.bbox).merge(),
     );
   }
 

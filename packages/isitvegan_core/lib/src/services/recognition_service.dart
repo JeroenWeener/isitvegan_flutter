@@ -1,15 +1,19 @@
 import 'package:edit_distance/edit_distance.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 
 import '../extensions/extensions.dart';
 import '../models/models.dart';
 import '../repositories/ingredient_repository.dart';
 
 class RecognitionService {
-  const RecognitionService({
+  RecognitionService({
     required IngredientRepository ingredientRepository,
-  }) : _ingredientRepository = ingredientRepository;
+    TextRecognizer? textRecognizer,
+  })  : _ingredientRepository = ingredientRepository,
+        _textRecognizer = textRecognizer ?? TextRecognizer();
 
   final IngredientRepository _ingredientRepository;
+  final TextRecognizer _textRecognizer;
 
   /// Finds the best matching words from text elements [ocrTexts] in [s] and [t].
   ///

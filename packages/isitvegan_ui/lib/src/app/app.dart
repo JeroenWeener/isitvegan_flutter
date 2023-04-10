@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 
 import '../features/scanner/view/scanner_page.dart';
-import 'text_detector_painter.dart';
+import '../features/scanner/view/text_overlay_painter.dart';
 
 /// This widget is the entry-point of the Widget-tree.
 class App extends StatelessWidget {
@@ -146,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if (inputImage.inputImageData?.size != null &&
         inputImage.inputImageData?.imageRotation != null) {
-      final painter = TextRecognizerPainter(
+      final painter = TextOverlayPainter(
           recognizedText,
           inputImage.inputImageData!.size,
           inputImage.inputImageData!.imageRotation);

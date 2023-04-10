@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 
-import 'coordinates_translator.dart';
+import '../../../utils/utils.dart';
 
-class TextRecognizerPainter extends CustomPainter {
-  TextRecognizerPainter(
+class TextOverlayPainter extends CustomPainter {
+  TextOverlayPainter(
     this.recognizedText,
     this.absoluteImageSize,
     this.rotation,
@@ -50,7 +50,7 @@ class TextRecognizerPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(TextRecognizerPainter oldDelegate) {
+  bool shouldRepaint(TextOverlayPainter oldDelegate) {
     return oldDelegate.recognizedText != recognizedText;
   }
 }

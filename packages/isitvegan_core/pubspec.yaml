@@ -9,6 +9,8 @@ environment:
 dependencies:
   edit_distance: ^0.5.0-nullsafety.0
   get_it: ^7.2.0
+  google_mlkit_commons: ^0.2.0
+  google_mlkit_text_recognition: ^0.5.0
   path_provider: ^2.0.14
 
 dev_dependencies:
