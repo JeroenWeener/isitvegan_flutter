@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
@@ -18,6 +20,7 @@ class TextOverlayPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    canvas.drawCircle(Offset.zero, 100, Paint()..color = Colors.red);
     final Paint goodPaint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0
@@ -44,11 +47,20 @@ class TextOverlayPainter extends CustomPainter {
         Offset(right, bottom),
         hasMilk ? badPaint : goodPaint,
       );
+
+      ParagraphBuilder pb = ParagraphBuilder(ParagraphStyle())
+        ..addText(textBlock.text);
+      canvas.drawParagraph(
+          pb.build()
+            ..layout(
+              ParagraphConstraints(width: textBlock.bbox.width),
+            ),
+          Offset(right, bottom));
     }
   }
 
   @override
   bool shouldRepaint(TextOverlayPainter oldDelegate) {
-    return listEquals(oldDelegate.recognizedText, recognizedText);
+    return true;
   }
 }
