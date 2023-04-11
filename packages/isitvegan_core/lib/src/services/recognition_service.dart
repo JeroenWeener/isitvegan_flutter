@@ -35,7 +35,7 @@ class RecognitionService {
   ///
   /// [dMax] limits how 'far' an element can be to be considered a match,
   /// according to [d].
-  Future<Iterable<OCRText>> recognize(
+  Future<List<OCRText>> recognize(
     int Function(String, String) d,
     Iterable<OCRText> ocrTexts, {
     int lookAhead = 10,

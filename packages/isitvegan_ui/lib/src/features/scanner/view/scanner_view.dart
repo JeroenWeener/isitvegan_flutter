@@ -108,7 +108,7 @@ class _MyCameraPreviewState extends State<MyCameraPreview> {
 class LabelOverlay extends StatelessWidget {
   const LabelOverlay(this.labels, this.image);
 
-  final Iterable<OCRText> labels;
+  final List<OCRText> labels;
   final InputImage image;
 
   @override

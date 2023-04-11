@@ -12,12 +12,12 @@ class ScannerState extends Equatable {
   });
 
   final CameraDescription? camera;
-  final Iterable<OCRText> labels;
+  final List<OCRText> labels;
   final CameraImage? lastImage;
 
   ScannerState copyWith({
     CameraDescription? camera,
-    Iterable<OCRText>? labels,
+    List<OCRText>? labels,
     CameraImage? lastImage,
   }) {
     return ScannerState(

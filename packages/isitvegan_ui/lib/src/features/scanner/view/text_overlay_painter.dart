@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:isitvegan_core/isitvegan_core.dart';
@@ -11,7 +12,7 @@ class TextOverlayPainter extends CustomPainter {
     this.rotation,
   );
 
-  final Iterable<OCRText> recognizedText;
+  final List<OCRText> recognizedText;
   final Size absoluteImageSize;
   final InputImageRotation rotation;
 
@@ -48,6 +49,6 @@ class TextOverlayPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(TextOverlayPainter oldDelegate) {
-    return oldDelegate.recognizedText != recognizedText;
+    return listEquals(oldDelegate.recognizedText, recognizedText);
   }
 }

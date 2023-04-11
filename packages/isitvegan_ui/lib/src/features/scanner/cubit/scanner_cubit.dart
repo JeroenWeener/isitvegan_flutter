@@ -63,13 +63,11 @@ class ScannerCubit extends Cubit<ScannerState> {
         state.lastImage!.toInputImage(state.camera!.sensorOrientation);
     RecognizedText recognizedText =
         await _recognitionService.scanImage(inputImage);
-    Iterable<OCRText> labels = await _recognitionService.recognize(
+    List<OCRText> labels = await _recognitionService.recognize(
       Levenshtein().distance,
       recognizedText.blocks
-          .map((e) => e.lines)
-          .reduce((value, element) => value + element)
-          .map((e) => e.elements)
-          .reduce((value, element) => value + element)
+          .expand((element) => element.lines)
+          .expand((element) => element.elements)
           .map((e) => OCRText(text: e.text, bbox: e.boundingBox)),
     );
 
